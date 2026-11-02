@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Page",
+    "description": "Portal page built in EduNexusAI Studio (layout = validated page-builder JSON)."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tenant": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "summary": {
+      "type": "text",
+      "maxLength": 500
+    },
+    "template": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "showInNav": {
+      "type": "boolean",
+      "default": false
+    },
+    "navLabel": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "layout": {
+      "type": "json"
+    },
+    "audienceStudents": {
+      "type": "boolean",
+      "default": true
+    },
+    "audienceFaculty": {
+      "type": "boolean",
+      "default": true
+    },
+    "audienceStaff": {
+      "type": "boolean",
+      "default": true
+    },
+    "audienceAlumni": {
+      "type": "boolean",
+      "default": false
+    },
+    "audiencePublic": {
+      "type": "boolean",
+      "default": false
+    },
+    "authorName": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "updatedByName": {
+      "type": "string",
+      "maxLength": 160
+    }
+  }
+}

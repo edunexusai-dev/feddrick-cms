@@ -1,0 +1,108 @@
+{
+  "kind": "collectionType",
+  "collectionName": "announcements",
+  "info": {
+    "singularName": "announcement",
+    "pluralName": "announcements",
+    "displayName": "Announcement",
+    "description": "Campus news and notices."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tenant": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "summary": {
+      "type": "text",
+      "maxLength": 400
+    },
+    "body": {
+      "type": "text",
+      "maxLength": 50000
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "general",
+        "academic",
+        "events",
+        "campus-life",
+        "finance",
+        "it-services",
+        "safety",
+        "wellness"
+      ],
+      "default": "general"
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": [
+        "normal",
+        "important",
+        "urgent"
+      ],
+      "default": "normal"
+    },
+    "pinned": {
+      "type": "boolean",
+      "default": false
+    },
+    "ctaLabel": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "ctaUrl": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "expiresAt": {
+      "type": "datetime"
+    },
+    "audienceStudents": {
+      "type": "boolean",
+      "default": true
+    },
+    "audienceFaculty": {
+      "type": "boolean",
+      "default": true
+    },
+    "audienceStaff": {
+      "type": "boolean",
+      "default": true
+    },
+    "audienceAlumni": {
+      "type": "boolean",
+      "default": false
+    },
+    "audiencePublic": {
+      "type": "boolean",
+      "default": false
+    },
+    "authorName": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "updatedByName": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "bodyFormat": {
+      "type": "enumeration",
+      "enum": [
+        "markdown",
+        "html"
+      ],
+      "default": "markdown"
+    }
+  }
+}

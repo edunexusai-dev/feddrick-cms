@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "audit_entries",
+  "info": {
+    "singularName": "audit-entry",
+    "pluralName": "audit-entries",
+    "displayName": "Audit Entry",
+    "description": "Who changed what in Studio (kept in the CMS database, not the application database)."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tenant": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "action": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40
+    },
+    "contentType": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "actorId": {
+      "type": "string",
+      "maxLength": 64
+    },
+    "actorName": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "targetId": {
+      "type": "string",
+      "maxLength": 64
+    }
+  }
+}

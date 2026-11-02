@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dashboard_layouts",
+  "info": {
+    "singularName": "dashboard-layout",
+    "pluralName": "dashboard-layouts",
+    "displayName": "Dashboard Layout",
+    "description": "Tenant default layout of one portal dashboard (presentation only; widgets keep their own data and permissions)."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tenant": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "persona": {
+      "type": "enumeration",
+      "enum": [
+        "student",
+        "faculty",
+        "admin"
+      ],
+      "required": true
+    },
+    "layout": {
+      "type": "json"
+    },
+    "authorName": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "updatedByName": {
+      "type": "string",
+      "maxLength": 160
+    }
+  }
+}

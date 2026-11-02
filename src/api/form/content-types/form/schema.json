@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "forms",
+  "info": {
+    "singularName": "form",
+    "pluralName": "forms",
+    "displayName": "Form",
+    "description": "Reusable portal forms (fields, notification recipient). Submissions are emailed by the EduNexusAI backend and not stored."
+  },
+  "options": { "draftAndPublish": true },
+  "pluginOptions": {},
+  "attributes": {
+    "tenant": { "type": "string", "required": true, "maxLength": 80 },
+    "name": { "type": "string", "required": true, "maxLength": 120 },
+    "description": { "type": "text", "maxLength": 500 },
+    "fields": { "type": "json" },
+    "submitLabel": { "type": "string", "maxLength": 60 },
+    "successMessage": { "type": "text", "maxLength": 300 },
+    "recipientEmail": { "type": "string", "maxLength": 254, "private": true },
+    "notificationSubject": { "type": "string", "maxLength": 150 },
+    "audienceStudents": { "type": "boolean", "default": true },
+    "audienceFaculty": { "type": "boolean", "default": true },
+    "audienceStaff": { "type": "boolean", "default": true },
+    "audienceAlumni": { "type": "boolean", "default": false },
+    "authorName": { "type": "string", "maxLength": 160 },
+    "updatedByName": { "type": "string", "maxLength": 160 }
+  }
+}

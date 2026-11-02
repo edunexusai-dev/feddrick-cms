@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faqs",
+  "info": {
+    "singularName": "faq",
+    "pluralName": "faqs",
+    "displayName": "FAQ",
+    "description": "Campus help articles shown beside the existing Help Centre FAQs."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tenant": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "question": {
+      "type": "string",
+      "required": true,
+      "maxLength": 300
+    },
+    "answer": {
+      "type": "text",
+      "required": true,
+      "maxLength": 30000
+    },
+    "category": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "audienceStudents": {
+      "type": "boolean",
+      "default": true
+    },
+    "audienceFaculty": {
+      "type": "boolean",
+      "default": true
+    },
+    "audienceStaff": {
+      "type": "boolean",
+      "default": true
+    },
+    "audienceAlumni": {
+      "type": "boolean",
+      "default": false
+    },
+    "audiencePublic": {
+      "type": "boolean",
+      "default": false
+    },
+    "authorName": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "updatedByName": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "answerFormat": {
+      "type": "enumeration",
+      "enum": [
+        "markdown",
+        "html"
+      ],
+      "default": "markdown"
+    }
+  }
+}

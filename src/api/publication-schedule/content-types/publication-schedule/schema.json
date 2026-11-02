@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "publication_schedules",
+  "info": {
+    "singularName": "publication-schedule",
+    "pluralName": "publication-schedules",
+    "displayName": "Publication schedule",
+    "description": "Scheduled publish/unpublish actions, executed by the CMS cron task (config/cron-tasks.js)."
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "tenant": { "type": "string", "required": true, "maxLength": 80 },
+    "contentType": { "type": "string", "required": true, "maxLength": 40 },
+    "targetId": { "type": "string", "required": true, "maxLength": 64 },
+    "action": { "type": "enumeration", "enum": ["publish", "unpublish"], "required": true },
+    "runAt": { "type": "datetime", "required": true },
+    "status": { "type": "enumeration", "enum": ["pending", "running", "done", "cancelled", "failed", "blocked"], "default": "pending", "required": true },
+    "draftFingerprint": { "type": "string", "maxLength": 64 },
+    "attempts": { "type": "integer", "default": 0 },
+    "nextAttemptAt": { "type": "datetime" },
+    "lastError": { "type": "string", "maxLength": 300 },
+    "executedAt": { "type": "datetime" },
+    "actorId": { "type": "string", "maxLength": 64 },
+    "actorName": { "type": "string", "maxLength": 160 }
+  }
+}
