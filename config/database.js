@@ -1,10 +1,15 @@
 /** @import { Core } from '@strapi/strapi' */
 
+const fs = require('fs');
 const path = require('path');
 const { isDatabaseClientKind } = require('@strapi/database');
 
 module.exports = ({ env }) => {
   const client = env('DATABASE_CLIENT', 'sqlite');
+  // TLS trust anchor for the database server (e.g. the RDS CA bundle). A PEM bundle is several lines, which an env
+  // file cannot hold, so it can be given as a file path (DATABASE_SSL_CA_FILE) instead of inline (DATABASE_SSL_CA).
+  const caFile = env('DATABASE_SSL_CA_FILE', undefined);
+  const ca = caFile ? fs.readFileSync(caFile, 'utf8') : env('DATABASE_SSL_CA', undefined);
 
   if (!isDatabaseClientKind(client)) {
     throw new Error(
@@ -45,7 +50,7 @@ module.exports = ({ env }) => {
         ssl: env.bool('DATABASE_SSL', false) && {
           key: env('DATABASE_SSL_KEY', undefined),
           cert: env('DATABASE_SSL_CERT', undefined),
-          ca: env('DATABASE_SSL_CA', undefined),
+          ca,
           capath: env('DATABASE_SSL_CAPATH', undefined),
           cipher: env('DATABASE_SSL_CIPHER', undefined),
           rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
