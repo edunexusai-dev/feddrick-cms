@@ -22,7 +22,8 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 COPY --from=prod-deps /app/node_modules ./node_modules
-COPY --from=build /app/dist ./dist
+# A JavaScript Strapi project writes the built admin panel to ./build (TypeScript projects use ./dist).
+COPY --from=build /app/build ./build
 COPY package.json ./
 COPY config ./config
 COPY database ./database
