@@ -31,9 +31,10 @@ COPY public ./public
 COPY src ./src
 COPY favicon.png ./
 
-# Uploads persist in a volume
-RUN mkdir -p /app/public/uploads && chown -R node:node /app/public/uploads
-VOLUME ["/app/public/uploads"]
+# Media persist in a volume on /app/public (not /app/public/uploads): Strapi's data transfer/import renames uploads
+# to a backup folder next to it, which needs public/ writable and uploads/ to be a plain directory, not a mount point.
+RUN mkdir -p /app/public/uploads && chown -R node:node /app/public
+VOLUME ["/app/public"]
 
 USER node
 EXPOSE 1337
